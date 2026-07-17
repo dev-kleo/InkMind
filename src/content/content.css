@@ -1,0 +1,160 @@
+#kos-floating-toolbar-root,
+.kos-note-overlay {
+  all: initial;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+.kos-toolbar {
+  position: absolute;
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 14px;
+  background: #0f1f1a;
+  color: #f3faf6;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: kos-scale-in 160ms ease-out;
+}
+
+.kos-toolbar-swatches {
+  display: flex;
+  gap: 6px;
+}
+
+.kos-toolbar-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0;
+}
+
+.kos-toolbar-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.kos-toolbar-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kos-toolbar-btn:hover,
+.kos-toolbar-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+.kos-highlight {
+  transition: filter 160ms ease;
+}
+
+.kos-highlight-pulse {
+  filter: brightness(1.15);
+  box-shadow: 0 0 0 3px rgba(47, 145, 108, 0.35);
+}
+
+.kos-note-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 20, 16, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.kos-note-panel {
+  width: min(420px, calc(100vw - 24px));
+  background: #f7fbf8;
+  color: #143e30;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: kos-fade-up 180ms ease-out;
+}
+
+.kos-note-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.kos-note-textarea {
+  width: 100%;
+  min-height: 140px;
+  border-radius: 12px;
+  border: 1px solid #c9ddd3;
+  padding: 12px;
+  resize: vertical;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.kos-note-counter {
+  font-size: 12px;
+  color: #4b7161;
+  text-align: right;
+}
+
+.kos-note-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.kos-note-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kos-note-btn-secondary {
+  background: #e5f0ea;
+  color: #184b39;
+}
+
+.kos-note-btn-primary {
+  background: #2f916c;
+  color: #fff;
+}
+
+@keyframes kos-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kos-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
