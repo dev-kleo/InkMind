@@ -1,0 +1,93 @@
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/600.css';
+@import '@fontsource/dm-sans/700.css';
+@import '@fontsource/fraunces/500.css';
+@import '@fontsource/fraunces/700.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kos-surface: #f4faf7;
+  --kos-surface-muted: #e7f2ec;
+  --kos-surface-elevated: #ffffff;
+  --kos-ink: #143e30;
+  --kos-ink-muted: #3d6354;
+  --kos-ink-subtle: #6b8a7c;
+  --kos-line: #c9ddd3;
+  --kos-accent: #2f916c;
+  --kos-font-size: 14px;
+  color-scheme: light;
+}
+
+.dark {
+  --kos-surface: #0c1713;
+  --kos-surface-muted: #13231d;
+  --kos-surface-elevated: #1a2d25;
+  --kos-ink: #e8f5ef;
+  --kos-ink-muted: #b7d0c4;
+  --kos-ink-subtle: #87a597;
+  --kos-line: #2a4338;
+  --kos-accent: #4aad86;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--kos-font-size);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(47, 145, 108, 0.16), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(20, 62, 48, 0.08), transparent 50%),
+    var(--kos-surface);
+  color: var(--kos-ink);
+}
+
+.dark body,
+body:has(html.dark),
+html.dark body {
+  background:
+    radial-gradient(1000px 500px at 0% 0%, rgba(74, 173, 134, 0.14), transparent 55%),
+    radial-gradient(800px 400px at 100% 0%, rgba(15, 40, 30, 0.55), transparent 50%),
+    var(--kos-surface);
+}
+
+@layer components {
+  .kos-card-interactive {
+    @apply rounded-2xl border border-line bg-surface-elevated p-3 transition hover:border-brand-400 focus-within:border-brand-400;
+  }
+
+  .kos-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-50;
+  }
+
+  .kos-btn-primary {
+    @apply kos-btn bg-brand-600 text-white hover:bg-brand-500;
+  }
+
+  .kos-btn-secondary {
+    @apply kos-btn bg-surface-muted text-ink hover:bg-brand-100 dark:hover:bg-brand-900/40;
+  }
+
+  .kos-btn-ghost {
+    @apply kos-btn bg-transparent text-ink-muted hover:bg-surface-muted hover:text-ink;
+  }
+
+  .kos-input {
+    @apply w-full rounded-xl border border-line bg-surface-elevated px-3 py-2 text-sm text-ink placeholder:text-ink-subtle focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-300/40;
+  }
+
+  .kos-label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-subtle;
+  }
+}
