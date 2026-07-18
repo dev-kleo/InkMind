@@ -2,7 +2,7 @@ import Dexie, { type Table } from 'dexie';
 import type { Collection, Highlight, Tag, UserSettings } from '@/types';
 import { DB_NAME, DB_VERSION } from '@/utils/constants';
 
-export class KnowledgeOsDatabase extends Dexie {
+export class InkMindDatabase extends Dexie {
   highlights!: Table<Highlight, string>;
   tags!: Table<Tag, string>;
   collections!: Table<Collection, string>;
@@ -21,4 +21,4 @@ export class KnowledgeOsDatabase extends Dexie {
   }
 }
 
-export const db = new KnowledgeOsDatabase();
+export const db = new InkMindDatabase();

@@ -17,7 +17,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo): void {
-    console.error('[KnowledgeOS]', error, info);
+    console.error('[InkMind]', error, info);
   }
 
   render(): ReactNode {

@@ -8,7 +8,7 @@ Object.defineProperty(globalThis, 'chrome', {
         addListener: () => undefined,
         removeListener: () => undefined,
       },
-      getURL: (path: string) => `chrome-extension://knowledge-os/${path}`,
+      getURL: (path: string) => `chrome-extension://inkmind/${path}`,
       openOptionsPage: () => undefined,
     },
     tabs: {

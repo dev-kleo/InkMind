@@ -153,7 +153,7 @@ export function PopupApp() {
         {page?.isPdf ? (
           <button type="button" className="kos-btn-secondary mb-4 w-full" onClick={() => void openPdfViewer()}>
             <FileText className="h-4 w-4" />
-            Open PDF in KnowledgeOS
+            Open PDF in InkMind
           </button>
         ) : null}
 

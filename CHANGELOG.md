@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to KnowledgeOS are documented in this file.
+All notable changes to InkMind are documented in this file.
 
 ## [1.0.0] — 2026-07-17
 

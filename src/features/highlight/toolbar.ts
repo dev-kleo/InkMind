@@ -48,7 +48,7 @@ export function showToolbar(rect: DOMRect, handlers: ToolbarHandlers, color: Hig
   root.id = TOOLBAR_ROOT_ID;
   root.className = 'kos-toolbar';
   root.setAttribute('role', 'toolbar');
-  root.setAttribute('aria-label', 'KnowledgeOS highlight toolbar');
+  root.setAttribute('aria-label', 'InkMind highlight toolbar');
 
   const swatches = document.createElement('div');
   swatches.className = 'kos-toolbar-swatches';
