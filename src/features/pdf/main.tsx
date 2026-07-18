@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
       <PdfViewer src={src} />
     ) : (
       <div className="flex min-h-screen items-center justify-center p-6 text-sm text-ink-muted">
-        Missing PDF source. Open a PDF via the KnowledgeOS popup or context menu.
+        Missing PDF source. Open a PDF via the InkMind popup or context menu.
       </div>
     )}
   </StrictMode>,

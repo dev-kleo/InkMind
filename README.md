@@ -1,4 +1,4 @@
-# KnowledgeOS
+# InkMind
 
 Privacy-first Chrome extension for highlighting text on webpages and PDFs, attaching notes, organizing knowledge with tags and collections, and exporting everything offline.
 

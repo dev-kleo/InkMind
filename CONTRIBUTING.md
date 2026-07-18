@@ -1,4 +1,4 @@
-# Contributing to KnowledgeOS
+# Contributing to InkMind
 
 Thanks for helping improve a privacy-first, offline knowledge tool.
 

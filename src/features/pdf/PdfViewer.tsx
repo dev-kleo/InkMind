@@ -205,7 +205,7 @@ export function PdfViewer({ src }: PdfViewerProps) {
         <header className="sticky top-0 z-10 border-b border-line bg-surface/90 px-4 py-3 backdrop-blur">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
             <div className="min-w-0">
-              <p className="font-display text-lg font-semibold text-ink">KnowledgeOS PDF</p>
+              <p className="font-display text-lg font-semibold text-ink">InkMind PDF</p>
               <p className="truncate text-xs text-ink-subtle">{title} · {pageCount} pages</p>
             </div>
             <div className="flex flex-wrap items-center gap-2">

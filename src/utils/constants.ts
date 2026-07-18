@@ -1,7 +1,7 @@
 import type { HighlightColor, Tag, UserSettings } from '@/types';
 
-export const APP_NAME = 'KnowledgeOS';
-export const DB_NAME = 'knowledge-os';
+export const APP_NAME = 'InkMind';
+export const DB_NAME = 'inkmind';
 export const DB_VERSION = 1;
 
 export const HIGHLIGHT_COLORS: Record<

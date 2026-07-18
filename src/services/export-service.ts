@@ -98,7 +98,7 @@ export async function exportHighlights(options: ExportOptions): Promise<{
   if (format === 'json') {
     return {
       content: toJson(highlights),
-      filename: `knowledge-os-export-${stamp}.json`,
+      filename: `inkmind-export-${stamp}.json`,
       mimeType: 'application/json',
     };
   }
@@ -106,14 +106,14 @@ export async function exportHighlights(options: ExportOptions): Promise<{
   if (format === 'text') {
     return {
       content: toText(highlights),
-      filename: `knowledge-os-export-${stamp}.txt`,
+      filename: `inkmind-export-${stamp}.txt`,
       mimeType: 'text/plain',
     };
   }
 
   return {
     content: toMarkdown(highlights),
-    filename: `knowledge-os-export-${stamp}.md`,
+    filename: `inkmind-export-${stamp}.md`,
     mimeType: 'text/markdown',
   };
 }

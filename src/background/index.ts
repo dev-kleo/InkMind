@@ -25,7 +25,7 @@ function registerContextMenus(): void {
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({
       id: 'kos-highlight',
-      title: 'Highlight with KnowledgeOS',
+      title: 'Highlight with InkMind',
       contexts: ['selection'],
     });
     chrome.contextMenus.create({
@@ -35,7 +35,7 @@ function registerContextMenus(): void {
     });
     chrome.contextMenus.create({
       id: 'kos-open-pdf',
-      title: 'Open PDF in KnowledgeOS',
+      title: 'Open PDF in InkMind',
       contexts: ['page', 'link'],
       documentUrlPatterns: ['*://*/*.pdf', '*://*/*.pdf?*'],
       targetUrlPatterns: ['*://*/*.pdf', '*://*/*.pdf?*'],
@@ -118,7 +118,7 @@ chrome.runtime.onMessage.addListener((message: ExtensionMessage, sender, sendRes
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status !== 'complete' || !tab.url) return;
   if (isPdfUrl(tab.url) && !tab.url.startsWith(chrome.runtime.getURL('pdf.html'))) {
-    // Soft hint: badge indicates PDF can be opened in KnowledgeOS viewer.
+    // Soft hint: badge indicates PDF can be opened in InkMind viewer.
     void chrome.action.setBadgeText({ tabId, text: 'PDF' });
     void chrome.action.setBadgeBackgroundColor({ tabId, color: '#2f916c' });
   } else {

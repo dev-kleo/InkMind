@@ -12,7 +12,7 @@ function wrapRange(range: Range, highlight: Highlight): void {
   mark.style.borderBottom = `2px solid ${color.border}`;
   mark.style.borderRadius = '2px';
   mark.style.cursor = 'pointer';
-  mark.title = highlight.note ? `Note: ${highlight.note}` : 'KnowledgeOS highlight';
+  mark.title = highlight.note ? `Note: ${highlight.note}` : 'InkMind highlight';
 
   try {
     range.surroundContents(mark);

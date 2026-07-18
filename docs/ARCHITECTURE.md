@@ -1,6 +1,6 @@
 # Architecture overview
 
-KnowledgeOS is a Manifest V3 Chrome extension with a feature-based frontend and a local IndexedDB persistence layer.
+InkMind is a Manifest V3 Chrome extension with a feature-based frontend and a local IndexedDB persistence layer.
 
 ## High-level diagram
 

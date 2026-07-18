@@ -5,7 +5,7 @@ const { version, description } = packageJson;
 
 export default defineManifest({
   manifest_version: 3,
-  name: 'KnowledgeOS',
+  name: 'InkMind',
   version,
   description,
   icons: {
@@ -16,7 +16,7 @@ export default defineManifest({
   },
   action: {
     default_popup: 'popup.html',
-    default_title: 'KnowledgeOS',
+    default_title: 'InkMind',
     default_icon: {
       '16': 'public/icons/icon-16.png',
       '32': 'public/icons/icon-32.png',
@@ -65,7 +65,7 @@ export default defineManifest({
         default: 'Ctrl+Shift+S',
         mac: 'Command+Shift+S',
       },
-      description: 'Open the KnowledgeOS sidebar',
+      description: 'Open the InkMind sidebar',
     },
   },
   web_accessible_resources: [
