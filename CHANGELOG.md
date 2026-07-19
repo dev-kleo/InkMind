@@ -2,6 +2,13 @@
 
 All notable changes to KnowledgeOS are documented in this file.
 
+## [1.0.1] — 2026-07-19
+
+### Fixed
+
+- Clarified Chrome load path: source ZIP / repo root has no `manifest.json`; load `dist/` after `npm run build`
+- Added `npm run pack` to produce `knowledge-os-extension.zip` from `dist/`
+
 ## [1.0.0] — 2026-07-17
 
 ### Added

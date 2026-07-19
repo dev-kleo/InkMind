@@ -1,12 +1,13 @@
 {
   "name": "knowledge-os",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Privacy-first browser extension for highlighting, notes, and knowledge organization",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "pack": "npm run build && node scripts/pack-extension.mjs",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.tsx --max-warnings 0",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",

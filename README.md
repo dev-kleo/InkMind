@@ -26,12 +26,23 @@ React · TypeScript · Vite · Tailwind CSS · Zustand · Dexie (IndexedDB) · P
 
 ```bash
 npm install
-npm run dev
+npm run build
 ```
 
-Load the unpacked extension from `dist/` in Chrome (`chrome://extensions` → Developer mode → Load unpacked).
+Then in Chrome:
 
-See [docs/INSTALLATION.md](docs/INSTALLATION.md) for a full install guide.
+1. Open `chrome://extensions`
+2. Enable **Developer mode**
+3. Click **Load unpacked**
+4. Select the **`dist/`** folder (not the repo root)
+
+> **Common mistake:** loading `InkMind-main`, the repo root, or a GitHub ZIP extract will fail with  
+> `Manifest file is missing or unreadable` — there is no `manifest.json` in the source tree.  
+> Run `npm run build` first, then load **`dist/`**.
+
+For HMR during development, use `npm run dev` (also writes into `dist/`).
+
+See [docs/INSTALLATION.md](docs/INSTALLATION.md) for the full install guide.
 
 ## Scripts
 
