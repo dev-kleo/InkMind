@@ -40,6 +40,9 @@ export default {
         float: '0 8px 30px rgba(15, 23, 42, 0.12)',
         panel: '0 1px 0 rgba(15, 23, 42, 0.04), 0 12px 32px rgba(15, 23, 42, 0.08)',
       },
+      transitionTimingFunction: {
+        spring: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
       keyframes: {
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(6px)' },

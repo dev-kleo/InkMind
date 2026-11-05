@@ -2,9 +2,10 @@
 .kos-note-overlay {
   all: initial;
   font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --kos-spring: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.kos-toolbar {
+#kos-floating-toolbar-root.kos-toolbar {
   position: absolute;
   z-index: 2147483646;
   display: flex;
@@ -12,11 +13,14 @@
   gap: 8px;
   padding: 10px;
   border-radius: 14px;
-  background: #0f1f1a;
+  background: rgba(15, 31, 26, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
   color: #f3faf6;
   box-shadow: 0 12px 40px rgba(15, 23, 42, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: kos-scale-in 160ms ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  transform-origin: center bottom;
+  animation: kos-scale-in 220ms var(--kos-spring);
 }
 
 .kos-toolbar-swatches {
@@ -31,6 +35,11 @@
   border: 1px solid rgba(255, 255, 255, 0.35);
   cursor: pointer;
   padding: 0;
+  transition: transform 100ms var(--kos-spring), outline 100ms ease;
+}
+
+.kos-toolbar-swatch:active {
+  transform: scale(0.85);
 }
 
 .kos-toolbar-actions {
@@ -48,12 +57,17 @@
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 100ms var(--kos-spring), background-color 120ms ease;
 }
 
 .kos-toolbar-btn:hover,
 .kos-toolbar-btn:focus-visible {
   background: rgba(255, 255, 255, 0.18);
   outline: none;
+}
+
+.kos-toolbar-btn:active {
+  transform: scale(0.94);
 }
 
 .kos-highlight {
@@ -72,20 +86,23 @@
   display: grid;
   place-items: center;
   background: rgba(10, 20, 16, 0.45);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
+  animation: kos-fade-in 180ms ease-out;
 }
 
 .kos-note-panel {
   width: min(420px, calc(100vw - 24px));
-  background: #f7fbf8;
+  background: rgba(247, 251, 248, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
   color: #143e30;
   border-radius: 18px;
   padding: 18px;
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   gap: 12px;
-  animation: kos-fade-up 180ms ease-out;
+  animation: kos-scale-in 220ms var(--kos-spring);
 }
 
 .kos-note-title {
@@ -125,6 +142,11 @@
   padding: 8px 14px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 100ms var(--kos-spring), background-color 120ms ease;
+}
+
+.kos-note-btn:active {
+  transform: scale(0.95);
 }
 
 .kos-note-btn-secondary {
@@ -156,5 +178,47 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes kos-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kos-toolbar,
+  .kos-note-overlay,
+  .kos-note-panel {
+    animation: kos-fade-in 120ms ease-out !important;
+  }
+
+  .kos-toolbar-swatch,
+  .kos-toolbar-btn,
+  .kos-note-btn {
+    transition: background-color 120ms ease, outline 100ms ease !important;
+  }
+
+  .kos-toolbar-swatch:active,
+  .kos-toolbar-btn:active,
+  .kos-note-btn:active {
+    transform: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  #kos-floating-toolbar-root.kos-toolbar {
+    background: #0f1f1a;
+    backdrop-filter: none;
+  }
+
+  .kos-note-panel {
+    background: #f7fbf8;
+    backdrop-filter: none;
+    border-color: #c9ddd3;
   }
 }

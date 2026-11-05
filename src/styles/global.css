@@ -46,6 +46,8 @@ body {
   margin: 0;
   font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   font-size: var(--kos-font-size);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   background:
     radial-gradient(1200px 600px at 10% -10%, rgba(47, 145, 108, 0.16), transparent 55%),
     radial-gradient(900px 500px at 100% 0%, rgba(20, 62, 48, 0.08), transparent 50%),
@@ -64,11 +66,11 @@ html.dark body {
 
 @layer components {
   .kos-card-interactive {
-    @apply rounded-2xl border border-line bg-surface-elevated p-3 transition hover:border-brand-400 focus-within:border-brand-400;
+    @apply rounded-2xl border border-line bg-surface-elevated p-3 transition duration-200 ease-spring hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-float focus-within:border-brand-400;
   }
 
   .kos-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition duration-150 ease-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 active:scale-[0.97] disabled:opacity-50 disabled:active:scale-100;
   }
 
   .kos-btn-primary {
@@ -89,5 +91,16 @@ html.dark body {
 
   .kos-label {
     @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-subtle;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kos-card-interactive,
+  .kos-btn,
+  .animate-fade-up,
+  .animate-scale-in {
+    animation: none !important;
+    transition-property: opacity, background-color, border-color, color !important;
+    transform: none !important;
   }
 }
