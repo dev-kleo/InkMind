@@ -66,9 +66,32 @@ export function scrollToHighlight(id: string): void {
 }
 
 export function restoreHighlights(highlights: Highlight[]): number {
+  const relevant = highlights.filter((highlight) => highlight.pageType !== 'pdf');
+  const relevantIds = new Set(relevant.map((highlight) => highlight.id));
+
+  const existingMarks = new Map<string, HTMLElement>();
+  document.querySelectorAll<HTMLElement>(`[${HIGHLIGHT_ATTR}]`).forEach((mark) => {
+    const id = mark.getAttribute(HIGHLIGHT_ATTR);
+    if (!id) return;
+    if (relevantIds.has(id)) {
+      existingMarks.set(id, mark);
+    } else {
+      removeHighlightFromDom(id);
+    }
+  });
+
   let applied = 0;
-  for (const highlight of highlights) {
-    if (highlight.pageType === 'pdf') continue;
+  for (const highlight of relevant) {
+    const mark = existingMarks.get(highlight.id);
+    if (mark) {
+      const palette = HIGHLIGHT_COLORS[highlight.color];
+      mark.setAttribute('data-kos-color', highlight.color);
+      mark.style.backgroundColor = palette.bg;
+      mark.style.borderBottom = `2px solid ${palette.border}`;
+      mark.title = highlight.note ? `Note: ${highlight.note}` : 'InkMind highlight';
+      applied += 1;
+      continue;
+    }
     if (applyHighlightToDom(highlight)) applied += 1;
   }
   return applied;

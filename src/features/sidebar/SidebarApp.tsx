@@ -18,7 +18,7 @@ import {
   deleteCollection,
 } from '@/services/collection-service';
 import { sendTabMessage, getActiveTab } from '@/services/messaging';
-import { displayHost } from '@/utils/url';
+import { canonicalUrl, displayHost } from '@/utils/url';
 import { FilterBar } from '@/features/sidebar/FilterBar';
 import { HighlightList } from '@/features/sidebar/HighlightList';
 import { TagsPanel } from '@/features/sidebar/TagsPanel';
@@ -94,7 +94,7 @@ export function SidebarApp() {
 
   const openHighlight = async (highlight: Highlight) => {
     const [tabInfo] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if (tabInfo?.id && tabInfo.url && highlight.canonicalUrl.includes(new URL(tabInfo.url).hostname)) {
+    if (tabInfo?.id && tabInfo.url && highlight.canonicalUrl === canonicalUrl(tabInfo.url)) {
       await sendTabMessage(tabInfo.id, 'SCROLL_TO_HIGHLIGHT', { id: highlight.id });
       return;
     }

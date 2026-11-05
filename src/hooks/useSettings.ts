@@ -20,6 +20,14 @@ export function useSettings() {
   }, [refresh]);
 
   useEffect(() => {
+    const listener = (message: { type?: string }) => {
+      if (message.type === 'SETTINGS_CHANGED') void refresh();
+    };
+    chrome.runtime.onMessage.addListener(listener);
+    return () => chrome.runtime.onMessage.removeListener(listener);
+  }, [refresh]);
+
+  useEffect(() => {
     if (settings.theme !== 'system') return;
     return watchSystemTheme(() => applyTheme('system', settings.fontSize));
   }, [settings.theme, settings.fontSize]);
